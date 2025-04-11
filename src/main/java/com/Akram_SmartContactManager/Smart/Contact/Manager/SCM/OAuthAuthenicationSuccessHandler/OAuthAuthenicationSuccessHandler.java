@@ -80,7 +80,7 @@ public class OAuthAuthenicationSuccessHandler implements AuthenticationSuccessHa
             String picture = oauthUser.getAttribute("avatar_url").toString();
             String name = oauthUser.getAttribute("login").toString();
             String providerUserId = oauthUser.getName();
-
+            
             user.setEmail(email);
             user.setProfilePic(picture);
             user.setName(name);

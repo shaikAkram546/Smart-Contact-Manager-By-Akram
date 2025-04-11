@@ -1,34 +1,55 @@
 <!DOCTYPE html>
-<html
-  lang="en"
-  th:replace="~{base :: parent(~{::#content},~{::title})}"
->
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title})}">
   <head>
     <title data-th-text="${loggedInUser.name}+' |  Dashboard'">
       Profile Page
     </title>
   </head>
-  <body>
+  <body class="bg-gray-100">
     <div id="content">
-      <!-- sidebar -->
-
-      <!-- user is logged in : sidebar -->
-
+      <!-- Sidebar -->
       <div th:if="${loggedInUser}">
         <div data-th-replace="~{user/sidebar :: sidebar}"></div>
       </div>
 
-      <div class="sm:pl-64 pt-20" style="height: 1000px">
-        <div class="flex justify-center flex-col items-center">
-          <h1 class="text-5xl">Welcome to Dashbaord page</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Consequatur, ratione!
-          </p>
+      <!-- Main Content -->
+      <div class="sm:pl-64 pt-20 min-h-screen flex flex-col items-center">
+        <div class="w-full max-w-4xl px-4 sm:px-8">
+          <!-- Welcome Section -->
+          <div class="text-center py-10">
+            <h1 class="text-3xl sm:text-5xl font-bold text-gray-800">
+              Welcome to Dashboard
+            </h1>
+          </div>
+
+          <!-- Responsive Cards Section -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div class="bg-white shadow-md rounded-lg p-6">
+              <h2 class="text-xl font-semibold text-gray-700">Card Title 1</h2>
+              <p class="mt-2 text-gray-600 text-sm">
+                Description for card 1. Add relevant content here.
+              </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white shadow-md rounded-lg p-6">
+              <h2 class="text-xl font-semibold text-gray-700">Card Title 2</h2>
+              <p class="mt-2 text-gray-600 text-sm">
+                Description for card 2. Add relevant content here.
+              </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white shadow-md rounded-lg p-6">
+              <h2 class="text-xl font-semibold text-gray-700">Card Title 3</h2>
+              <p class="mt-2 text-gray-600 text-sm">
+                Description for card 3. Add relevant content here.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
-   
   </body>
 </html>

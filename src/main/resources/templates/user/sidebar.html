@@ -13,20 +13,24 @@
       class="flex flex-col items-center ps-2.5 mb-8"
     >
  
-    <!-- If profilePic exists -->
+ <!-- Profile picture handling in Thymeleaf -->
+<!-- If profilePic exists -->
 <img data-th-if="${loggedInUser.profilePic != null}"
-     data-th-src="@{${loggedInUser.profilePic}}"
-     src="path/to/profilePic.jpg"
-     alt="Image is missing"
-     class="h-16 me-3 sm:h-24 shadow-md rounded-full mt-6">
+     th:src="@{${loggedInUser.profilePic}}"
+     alt="Profile picture is missing"
+     class="h-16 me-3 sm:h-24 shadow-md rounded-full mt-6" />
 
-    
-    <!-- If profilePic doesn't exist -->
-    <img data-th-unless="${loggedInUser.profilePic != null}"
-         src="https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector-PNG-Pic.png"
-         class="h-16 me-3 sm:h-24 shadow-md rounded-full mt-6" <!-- Added "mt-6" -->
+<!-- Debugging profilePic in the console -->
+<script>
+    // Correctly log the profile picture URL using Thymeleaf this is the syntax of bringing the java object into html script tag
+    console.log("Profile Picture URL:", "[[@{${loggedInUser.profilePic}}]]");
+</script>
 
-      
+<!-- If profilePic doesn't exist -->
+<img data-th-unless="${loggedInUser.profilePic != null}"
+     src="https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector-PNG-Pic.png"
+     alt="Default Avatar"
+     class="h-16 me-3 sm:h-24 shadow-md rounded-full mt-6" />
 
       <span class="text-gray-500" data-th-text="${loggedInUser.name}"
         >Akram</span
@@ -102,25 +106,7 @@
           <span class="flex-1 ms-3 whitespace-nowrap">Contacts</span>
         </a>
       </li>
-      <li>
-        <a
-          href="#"
-          class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-        >
-          <svg
-            class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 18 20"
-          >
-            <path
-              d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z"
-            />
-          </svg>
-          <span class="flex-1 ms-3 whitespace-nowrap">Direct Message</span>
-        </a>
-      </li>
+     
       <li>
         <a
           data-th-href="@{'/logout'}"
