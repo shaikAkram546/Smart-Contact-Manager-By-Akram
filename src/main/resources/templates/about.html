@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title})}">
+<head>
+    <title>About Us - Smart Contact Manager</title>
+</head>
+<body>
+<div id="content" class="border">
+    <!-- About Section -->
+    <section class="bg-blue-600 text-white py-20 animate__animated animate__fadeInDown">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-4">About Smart Contact Manager</h2>
+            <p class="text-lg mb-8">Smart Contact Manager is your ultimate solution for managing contacts effortlessly and securely. Designed with simplicity and efficiency in mind, it empowers you to stay organized and connected.</p>
+        </div>
+    </section>
+
+    <!-- Our Mission Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-12 animate__animated animate__fadeInUp">Our Mission</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="p-6 bg-gray-100 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+                    <i class="fas fa-bullseye text-blue-600 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Simplicity</h3>
+                    <p class="text-gray-600">We aim to make contact management as simple and intuitive as possible.</p>
+                </div>
+                <div class="p-6 bg-gray-100 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+                    <i class="fas fa-shield-alt text-blue-600 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Security</h3>
+                    <p class="text-gray-600">Your data is our top priority. We ensure it is stored securely and privately.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="bg-blue-600 text-white py-20 animate__animated animate__fadeInUp">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">Why Choose Smart Contact Manager?</h2>
+            <p class="text-lg mb-8">With features like 24/7 access, secure storage, and an easy-to-use interface, Smart Contact Manager is the perfect tool for individuals and businesses alike.</p>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-12 animate__animated animate__fadeInUp">Meet the Creator</h2>
+            <div class="p-6 bg-gray-100 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+                <h3 class="text-xl font-semibold mb-2">Shaik Akram</h3>
+                <p class="text-gray-600">The visionary behind Smart Contact Manager, Akram is passionate about creating tools that simplify life and enhance productivity.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="bg-blue-600 text-white py-20 animate__animated animate__fadeInUp">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <p class="text-lg mb-8">Join thousands of users who trust Smart Contact Manager for their contact management needs.</p>
+            <a th:href="@{'/register'}"
+               class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300">Sign Up Now</a>
+        </div>
+    </section>
+</div>
+</body>
+</html>

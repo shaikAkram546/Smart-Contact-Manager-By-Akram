@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html class="light" lang="en" th:fragment="parent(content,title)" xmlns:th="http://www.thymeleaf.org">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title th:replace="${title}">SCM</title>
+        <!-- font awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+                integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+                crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- The flowbite -->
+        <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
+        <!-- To add relative path for tailwind css we use @ symbol -->
+        <link rel="stylesheet" data-th-href="@{'/CSS/output.css'}">
+        <link rel="stylesheet" data-th-href="@{'/CSS/style.css'}">
+        
+        
+       
+</head>
+<body>
+      <header>
+         <!--if user Logged, navbar -->
+        <div th:if="${loggedInUser}">
+               
+      <div data-th-replace="~{user/user-navbar::user-navbar}"></div>
+    </div>
+       <!-- if user Logged sidebar -->
+
+
+       <!-- if user not logged, navbar -->
+         <div th:unless="${loggedInUser}">
+      <div data-th-replace="~{navbar :: navbar}"></div>
+    </div>
+      </header>
+         
+        <!-- The main content  -->
+<div class="p-6" style="margin-top: 20px;">
+        <section th:insert="${content}"></section>
+</div>
+
+
+ 
+         <!-- Common footer -->
+          
+
+<div style="display: flex; flex-direction: column; min-height: 10vh;">
+  <!-- Main content -->
+  <div style="flex: 1;">
+    <!-- Your main content goes here -->
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 Contact Manager. All rights reserved.</p>
+      <p>Follow us on <a href="#" class="text-blue-400">Facebook</a>, <a href="#"
+                                                                         class="text-blue-400">Twitter</a>, and <a
+              href="#" class="text-blue-400">Instagram</a>.</p>
+    </div>
+  </footer>
+</div>
+
+ 
+
+
+
+
+        <!-- The flowbite in Body  -->
+        <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+        <script data-th-src="@{'/js/script.js'}"></script>
+</body>
+</html>
